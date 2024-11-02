@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+  color: #333;
+}
+
+.weather-app {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  width: 350px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.weather-app:hover {
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+}
+
+.weather-header h1 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+#cityInput {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  transition: border 0.3s ease;
+}
+
+#cityInput:focus {
+  border: 1px solid #00bcd4;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0097a7;
+}
+
+.weather-info {
+  margin-top: 20px;
+}
+
+.weather-info h2 {
+  color: #333;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.weather-info p {
+  font-size: 18px;
+  color: #555;
+  margin: 5px 0;
+}
+
+#weatherIcon {
+  margin-top: 15px;
+  width: 100px;
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+#weatherIcon:hover {
+  transform: scale(1.1);
+}
+
+.weather-header .error_msg {
+  display: none;
+  color: red;
+}
+.weather-info {
+  display: none;
+  transition: all ease-in-out;
+}

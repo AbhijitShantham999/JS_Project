@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="weather-app">
+      <div class="weather-header">
+        <h1>Weather App</h1>
+        <input type="text" id="cityInput" placeholder="Enter City Name or Code" />
+        <p class="error_msg">Invalid Input</p>
+        <button>Get Weather</button>
+      </div>
+
+      <div class="weather-info">
+        <img id="weatherIcon" src="" alt="Weather Icon" />
+        <p class="weather_condn">--</p>
+        <h2 id="cityName">City Name</h2>
+        <p id="temperature">Temperature: --°C</p>
+        <p id="feelsLike">Feels Like: --°C</p>
+        <p id="humidity">Humidity: --%</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
