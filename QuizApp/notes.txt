@@ -1,0 +1,95 @@
+const quizs = [
+  {
+    question: "What is the capital of France?",
+    options: ["Berlin", "Madrid", "Paris", "Rome"],
+    correctAnswer: "Paris",
+  },
+  {
+    question: "Which planet is known as the Red Planet?",
+    options: ["Earth", "Mars", "Jupiter", "Venus"],
+    correctAnswer: "Mars",
+  },
+  {
+    question: "What is the largest mammal?",
+    options: ["Elephant", "Blue Whale", "Giraffe", "Shark"],
+    correctAnswer: "Blue Whale",
+  },
+  {
+    question: "Who wrote 'Romeo and Juliet'?",
+    options: [
+      "Charles Dickens",
+      "J.K. Rowling",
+      "William Shakespeare",
+      "Ernest Hemingway",
+    ],
+    correctAnswer: "William Shakespeare",
+  },
+  {
+    question: "What is the boiling point of water at sea level?",
+    options: ["90°C", "100°C", "110°C", "120°C"],
+    correctAnswer: "100°C",
+  },
+];
+
+const mainCtn = document.querySelector(".main");
+const main_h1 = document.querySelector("h1");
+
+const quizSec = document.querySelector(".quiz_sec");
+const startBtn = document.createElement("button");
+
+startBtn.textContent = "Start";
+mainCtn.appendChild(startBtn);
+let index = 0;
+let score = 0;
+startBtn.addEventListener("click", function () {
+  const existingStatus = document.querySelector(".score_status");
+  if (existingStatus) {
+    existingStatus.remove(); // Remove the old status element
+  }
+  quizSec.innerHTML = "";
+  if (index < quizs.length) {
+    // console.log("clicked");
+    // console.log(quizs[index]);
+    const ques = document.createElement("div");
+    ques.classList = "ques-div";
+    ques.innerHTML = `<p>${index + 1}.${quizs[index].question}</p>`;
+    quizSec.appendChild(ques);
+
+    const ans = document.createElement("div");
+    ans.classList = "ans-div";
+
+    quizs[index].options.forEach((option, optindex) => {
+      const p = document.createElement("p");
+      p.textContent = `${optindex + 1}.${option}`;
+      ans.appendChild(p);
+      p.addEventListener("click", function () {
+        if (quizs[index - 1].correctAnswer === option) {
+          p.style.backgroundColor = "lightgreen";
+          score++;
+          console.log("score: ", score, "/5");
+        } else {
+          p.style.backgroundColor = "orangered";
+        }
+        clicked = true;
+        alert("please click any one option");
+      });
+    });
+
+    quizSec.appendChild(ans);
+    console.log(quizs[index].correctAnswer);
+
+    index++;
+    main_h1.textContent = `Question ${index}`;
+    startBtn.textContent = "next";
+  } else {
+    const status = document.createElement("h2");
+    status.classList = "score_status";
+    status.innerHTML = `Your Score is ${score}/5`;
+
+    main_h1.textContent = `Finisted Your Quizz,Wanna Restart??`;
+    mainCtn.appendChild(status);
+    startBtn.textContent = "restart";
+    index = 0;
+    score = 0;
+  }
+});
